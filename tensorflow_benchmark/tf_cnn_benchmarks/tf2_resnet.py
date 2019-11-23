@@ -137,7 +137,7 @@ def main():
             duration = time() - loop_time
             loop_time = time()
             throughput = (hvd.size()*FLAGS.batch_size)/duration
-            print("{} \t {} \t {}".format(batch, throughput, loss))
+            print("{} \t images/sec: {} \t {}".format(batch, throughput, loss))
         if batch==FLAGS.num_batches:
             break
     if hvd.rank() == 0:
